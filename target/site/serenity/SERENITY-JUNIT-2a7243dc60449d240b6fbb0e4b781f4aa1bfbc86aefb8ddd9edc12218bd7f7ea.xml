@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Obtener una mascota existente con el metodo GET" skipped="0" tests="1" time="6.65" timestamp="2025-03-13 04:34:23"><testcase name="Se recupera correctamente la información de una mascota existente"/></testsuite>

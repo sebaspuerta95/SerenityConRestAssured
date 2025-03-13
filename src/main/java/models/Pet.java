@@ -28,6 +28,22 @@ public class Pet {
     @JsonProperty("status")
     private String status;
 
+    public Pet(int id, String name, String status) {
+        this.id = id;
+
+        this.category = new Category();
+
+        this.name = name;
+        this.photoUrls = Collections.singletonList("string");
+
+        Tag tag = new Tag();
+        List<Tag> tags = new ArrayList<>();
+        tags.add(tag);
+        this.tags = tags;
+
+        this.status = status;
+    }
+
     public Pet(int id) {
         this.id = id;
 
