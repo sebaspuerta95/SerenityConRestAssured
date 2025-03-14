@@ -7,31 +7,30 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.equalTo;
-import static utils.Constantes.BASE_URL;
 
-import tasks.ConsumirServicioPost;
-import questions.CodigoRespuesta;
+import tasks.ConsumePostService;
+import questions.AnswerCode;
 
-public class PostStepDefinition extends EstablecerServicio {
+public class PostNewPetStepDefinition extends EstablishService {
 
     @Given("el usuario obtiene la URL base de la API")
-    public void elUsuarioObtieneLaURLBaseDeLaAPI(){
+    public void getApiBaseUrl(){
         OnStage.setTheStage(new OnlineCast());
-        establecerServicio(BASE_URL);
+        establishService();
     }
 
     @When("crea una peticion para crear una nueva mascota con el recurso {string} con id {string}")
-    public void creaUnaPeticionParaCrearUnaNuevaMascota(String recurso, String id) {
+    public void createNewPet(String resource, String id) {
         actor.attemptsTo(
-                ConsumirServicioPost.conRecurso(recurso, Integer.parseInt(id))
+                ConsumePostService.withResource(resource, Integer.parseInt(id))
         );
     }
 
     @Then("valida el estado de dicha peticion")
-    public void valida_el_estado_de_dicha_peticion() {
+    public void validatePetitionStatus() {
         actor.should(
                 seeThat("El código de respuesta",
-                        CodigoRespuesta.codigoRespuesta(), equalTo(SC_OK))
+                        AnswerCode.answerCode(), equalTo(SC_OK))
         );
     }
 

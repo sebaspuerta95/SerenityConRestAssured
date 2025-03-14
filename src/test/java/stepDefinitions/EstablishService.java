@@ -3,14 +3,14 @@ package stepDefinitions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
-import static utils.Constantes.ACTOR;
+import static utils.Constants.ACTOR;
 
-public class EstablecerServicio {
+public class EstablishService {
 
     protected static final Actor actor = new Actor(ACTOR);
 
-    protected void establecerServicio(String urlBase){
-        actor.can(CallAnApi.at(urlBase));
+    protected void establishService(){
+        actor.can(CallAnApi.at(utils.Constants.BASE_URL));
     }
 
 }
