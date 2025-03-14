@@ -14,5 +14,5 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @SelectClasspathResource("features/PutExistingPet.feature")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepDefinitions")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "io.cucumber.core.plugin.SerenityReporterParallel, pretty, timeline:build/test-results/timeline")
-public class PutExistingPetRunner {
+public class PutExistingPetStepDefinitionRunner {
 }
