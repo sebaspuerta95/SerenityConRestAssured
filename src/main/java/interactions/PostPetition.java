@@ -2,6 +2,7 @@ package interactions;
 
 import io.restassured.http.ContentType;
 import models.Pet;
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.interactions.RestInteraction;
@@ -19,6 +20,7 @@ public class PostPetition extends RestInteraction {
     }
 
     @Override
+    @Step("{0} sends the POST request to the resource #resource with ID #id")
     public <T extends Actor> void performAs(T actor) {
         Pet pet = new Pet(id);
         SerenityRest.given().

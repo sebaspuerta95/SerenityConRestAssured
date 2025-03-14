@@ -1,6 +1,7 @@
 package tasks;
 
 import interactions.PostPetition;
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 
@@ -15,6 +16,7 @@ public class ConsumePostService implements Task {
     }
 
     @Override
+    @Step("{0} sends the request to resource #resource with ID #id")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 PostPetition.withResource(resource, id)
