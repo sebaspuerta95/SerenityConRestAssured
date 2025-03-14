@@ -3,6 +3,7 @@ package interactions;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import models.Pet;
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.interactions.RestInteraction;
@@ -20,6 +21,7 @@ public class PutPetition extends RestInteraction {
     }
 
     @Override
+    @Step("{0} sends a PUT request to the resource #resource with the pet #pet")
     public <T extends Actor> void performAs(T actor) {
          Response response = SerenityRest.given()
                 .log().all()
