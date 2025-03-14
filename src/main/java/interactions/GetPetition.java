@@ -1,5 +1,6 @@
 package interactions;
 
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.interactions.RestInteraction;
@@ -15,6 +16,7 @@ public class GetPetition extends RestInteraction {
     }
 
     @Override
+    @Step("{0} sends a GET request to the resoure #resource")
     public <T extends Actor> void performAs(T actor) {
 
         SerenityRest.given().
