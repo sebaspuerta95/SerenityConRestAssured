@@ -22,7 +22,7 @@ public class GetPetition extends RestInteraction {
     @Override
     @Step("{0} sends a GET request to the resoure #resource")
     public <T extends Actor> void performAs(T actor) {
-        LOGGER.info("Sending GET requers to resource {}:", resource);
+        LOGGER.info("Sending GET request to resource {}:", resource);
 
         SerenityRest.given().
                 log().all()

@@ -7,10 +7,14 @@ import net.serenitybdd.annotations.Step;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.rest.interactions.RestInteraction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static net.serenitybdd.screenplay.rest.abilities.CallAnApi.as;
 
 public class PutPetition extends RestInteraction {
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(PutPetition.class);
 
     private final String resource;
     private final Pet pet;
@@ -23,7 +27,9 @@ public class PutPetition extends RestInteraction {
     @Override
     @Step("{0} sends a PUT request to the resource #resource with the pet #pet")
     public <T extends Actor> void performAs(T actor) {
-         Response response = SerenityRest.given()
+        LOGGER.info("Sending PUT request to resource {} with pet {}:", resource, pet);
+
+        Response response = SerenityRest.given()
                 .log().all()
                 .contentType(ContentType.JSON)
                 .body(pet)
@@ -33,6 +39,8 @@ public class PutPetition extends RestInteraction {
                 .extract().response();
 
         actor.remember("last_response", response);
+
+        LOGGER.info("New pet information was updated successfully.");
     }
 
     public static PutPetition withResource(String resource, Pet pet) {
